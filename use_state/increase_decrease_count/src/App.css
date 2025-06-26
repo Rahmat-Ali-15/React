@@ -1,0 +1,38 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #242424;
+}
+.count_container{
+    height: 35vh;
+    width: 20%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    color: #ffffff;
+    background-color: #110f14;
+    box-shadow: 8px 5px 10px #cac14c;
+    border-radius: 30px;
+}
+.count{
+    display: flex;
+    gap: 20px;
+}
+button{
+    padding: 8px 10px;
+    border: none;
+    border-radius: 10px;
+    background-color: #dcc804;
+    cursor: pointer;
+}
