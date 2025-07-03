@@ -12,7 +12,7 @@ export const Card = ({
         justifyContent : "center",
         flexDirection : "column",
         border : "1px solid red",
-        height : "160px",
+        height : "16Props default0px",
         width : "300px",
       }}
     >
