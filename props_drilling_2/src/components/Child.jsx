@@ -1,9 +1,11 @@
 import React from "react";
 
-export const Child = ({counts}) => {
+export const Child = (props) => {
     return(
         <>
-            <h1>Child {counts}</h1>
+            <h1>Child {props.counts.count}</h1>
+            <button onClick={props.counts.increaseCount}>+</button>
+            <button onClick={props.counts.decreaseCount}>-</button>
         </>
     )
 }
