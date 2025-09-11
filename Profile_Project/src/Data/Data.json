@@ -1,50 +1,50 @@
 {
-  "profile" : [
+  "profile": [
     {
-      "name" : "md rahmat ali",
-      "img" : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIf4R5qPKHPNMyAqV-FjS_OTBB8pfUV29Phg&s",
-      "designation" : "web developer",
-      "skill" : ["front-end", "back-end", "mern"],
-      "platform" : [
+      "name": "md rahmat ali",
+      "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIf4R5qPKHPNMyAqV-FjS_OTBB8pfUV29Phg&s",
+      "designation": "web developer",
+      "skill": ["front-end", "back-end", "MERN"],
+      "platform": [
         {
-          "name" : "html",
-          "color" : "tomato"
+          "name": "html",
+          "color": "#E34F26"
         },
         {
-          "name" : "css",
-          "color" : "blue"
+          "name": "css",
+          "color": "#1572B6"
         },
         {
-          "name" : "java script",
-          "color" : "green"
+          "name": "java script",
+          "color": "#F7DF1E"
         },
         {
-          "name" : "react",
-          "color" : "gray"
+          "name": "react",
+          "color": "#61DAFB"
         }
       ],
 
-      "socialMedia" : [
+      "socialMedia": [
         {
-          "rating" : "5.2k",
-          "text1" : "fans",
-          "icon" : "https://static.vecteezy.com/system/resources/previews/018/930/698/non_2x/facebook-logo-facebook-icon-transparent-free-png.png",
-          "text2" : "like",
-          "color" : "blue"
+          "rating": "5.2k",
+          "text1": "fans",
+          "icon": "https://static.vecteezy.com/system/resources/previews/018/930/698/non_2x/facebook-logo-facebook-icon-transparent-free-png.png",
+          "text2": "like",
+          "color": "blue"
         },
         {
-          "rating" : "1.4k",
-          "text1" : "following",
-          "icon" : "https://static.vecteezy.com/system/resources/previews/018/930/698/non_2x/facebook-logo-facebook-icon-transparent-free-png.png",
-          "text2" : "tweet",
-          "color" : "green"
+          "rating": "1.4k",
+          "text1": "following",
+          "icon": "https://static.vecteezy.com/system/resources/previews/018/930/698/non_2x/facebook-logo-facebook-icon-transparent-free-png.png",
+          "text2": "tweet",
+          "color": "green"
         },
         {
-          "rating" : "2.8k",
-          "text1" : "followers",
-          "icon" : "https://static.vecteezy.com/system/resources/previews/018/930/698/non_2x/facebook-logo-facebook-icon-transparent-free-png.png",
-          "text2" : "follow",
-          "color" : "red"
+          "rating": "2.8k",
+          "text1": "followers",
+          "icon": "https://static.vecteezy.com/system/resources/previews/018/930/698/non_2x/facebook-logo-facebook-icon-transparent-free-png.png",
+          "text2": "follow",
+          "color": "red"
         }
       ]
     }
