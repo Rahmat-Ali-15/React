@@ -1,24 +1,23 @@
-// import { useState } from 'react'
-import './App.css'
-import { Child } from './Components/Child';
-import { Profile } from './Components/Profile';
-function App() {
+// import './App.css'
+// import { Profile } from './Components/Profile';
+// function App() {
 
-  // const [number1, setNumber1] = useState("");
-  // const [number2, setNumber2] = useState("");
-  // const [operators, setOperator] = useState("");
+//   return (
+//     <>
+//       <Profile />
+//     </>
+//   )
+// }
 
+// export default App
 
-  return (
+import { Profile } from "./Components/Profile";
+
+export function App() {
+
+  return(
     <>
-      {/* <h1>calculator parent</h1>
-      <input type="text" onChange={(e) => setNumber1(e.target.value)} placeholder='please enter the number1' /><br /><br />
-      <input type="text" onChange={(e) => setOperator(e.target.value)} placeholder='please enter the operator' /><br /><br />
-      <input type="text" onChange={(e) => setNumber2(e.target.value)} placeholder='please enter the number2' /> <br /> <br />
-      <Child props={{ number1, operators, number2 }} /> */}
       <Profile />
     </>
   )
 }
-
-export default App
