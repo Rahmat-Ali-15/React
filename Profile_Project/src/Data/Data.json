@@ -35,14 +35,14 @@
         {
           "rating": "1.4k",
           "text1": "following",
-          "icon": "https://static.vecteezy.com/system/resources/previews/018/930/698/non_2x/facebook-logo-facebook-icon-transparent-free-png.png",
-          "text2": "tweet",
+          "icon": "https://cdn-icons-png.flaticon.com/256/124/124021.png",
+          "text2": "twitter",
           "color": "green"
         },
         {
           "rating": "2.8k",
           "text1": "followers",
-          "icon": "https://static.vecteezy.com/system/resources/previews/018/930/698/non_2x/facebook-logo-facebook-icon-transparent-free-png.png",
+          "icon": "https://cdn.pixabay.com/photo/2015/12/11/11/43/google-1088004_640.png",
           "text2": "follow",
           "color": "red"
         }
