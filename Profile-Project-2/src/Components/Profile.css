@@ -1,0 +1,149 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: black;
+}
+main{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+/* card-one start */
+.card-one{
+    width: 50%;
+    padding: 40px 20px 40px 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    color: white;
+    border: 4px solid white;
+    background-color: #122738;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 180px;
+    border-top-left-radius: 180px;
+    box-shadow: 0 0 20px #296191,0 0 20px #296191, 0 0 20px #296191, 0 0 20px #296191;
+}
+.profile-img{
+    width: 20%;
+}
+.profile-img>img{
+    width: 100%;
+    border-radius: 50%;
+}
+.profile-info{
+    width: 55%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.profile-info>div:nth-child(1)>p{
+    width: 170px;
+    text-transform: capitalize;
+    border-bottom: 1px solid #f3cc02;
+}
+.profile-info>div:nth-child(1)>h1{
+    color: #f3cc02;
+    text-transform: capitalize;
+}
+.profile-info>div:nth-child(2)>p{
+    font-size: 11px;
+}
+.socialMedia-container{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.socialMedia-icon>img{
+    width: 20px;
+    border-radius: 50%;
+}
+.contact-info{
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    padding-left: 20px;
+    border-left: 3px solid white;
+}
+.icon img{
+    width: 15px;
+    border-radius: 50%;
+}
+.icon p{
+    font-size: 12px;
+}
+.icon div{
+    display: flex;
+    gap: 10px;
+}
+/* card-one end */
+
+/* card-two start */
+.card-two{
+    width: 24%;
+    padding: 10px 20px;
+    height: 550px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    border: 3px solid white;
+    border-radius: 30px;
+    background-color: #122738;
+}
+.card-two>div:nth-child(1){
+    width: 100%;
+    height: 280px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 15px;
+    border-bottom: 2px solid #f3cc02;
+}
+.card-two>div:nth-child(1)>img{
+    width: 220px;
+}
+.card-two>div:nth-child(1)>div>h1{
+    color: #f3cc02;
+    text-transform: capitalize;
+}
+.card-two>div:nth-child(1)>div>p{
+    color: white;
+    text-transform: capitalize;
+    text-align: center;
+}
+.card-two>div:nth-child(2)>p{
+    font-size: 12px;
+    color: white;
+    text-align: center;
+}
+.card-two>div:nth-child(3){
+    width: 100%;
+}
+.card-two>div:nth-child(4){
+    width: 100%;
+    flex-direction: row;
+    gap: 10px;
+    color: white;
+    border: none;
+}
+.card-two>div:nth-child(4)>.icon div{
+    gap: 5px;
+}
+.card-two>div:nth-child(4)>div img{
+    width: 10px;
+}
+.card-two>div:nth-child(4)>div p{
+    font-size: 10px;
+}
+/* card-two end */
