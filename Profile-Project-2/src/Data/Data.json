@@ -1,0 +1,46 @@
+{
+    "profile" : [
+        {
+            "img" : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIf4R5qPKHPNMyAqV-FjS_OTBB8pfUV29Phg&s",
+            "name" : "md rahmat ali",
+            "desiganation" : "full-stack web developer",
+            "about" : "I am a MERN Stack Developer with a strong foundation in HTML, CSS, and JavaScript. Passionate about creating responsive and user-friendly web interfaces, I focus on writing clean, efficient code and continuously expanding my web development skills.",
+            "socialMedia" : [
+                {
+                    "icon" : "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/LinkedIn_logo_initials.png/960px-LinkedIn_logo_initials.png",
+                    "name" : "Linkdine Logo"
+                },
+                {
+                    "icon" : "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/2023_Facebook_icon.svg/2048px-2023_Facebook_icon.svg.png",
+                    "name" : "Facebook Logo"
+                },
+                {
+                    "icon" : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuH7c5cLpGehi0b4iQk90fXUzC9p7Ebla13w&s",
+                    "name" : "Instagram Logo"
+                },
+                {
+                    "icon" : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxHIbEeeXnOPyy_0LhyLy01Wd9Hq4pLcmdYQ&s",
+                    "name" : "Github Logo"
+                },
+                {
+                    "icon" : "https://cdn4.iconfinder.com/data/icons/flat-brand-logo-2/512/twitter-512.png",
+                    "name" : "Twitter Logo"
+                }
+            ],
+            "contact" : [
+                {
+                    "phone_icon" : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzc011eVsZsRKxx-4PkvWhK55psbWBheKHpg&s",
+                    "number" : "+91 926298XXXX"
+                },
+                {
+                    "email_icon" : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRM_jcB6Zzxj3_HCIZTmawh-W0yqyWmN4TIbQ&s",
+                    "email" : "xyz@gmail.com"
+                },
+                {
+                    "location_icon" : "https://static.vecteezy.com/system/resources/previews/008/015/118/non_2x/address-icon-free-vector.jpg",
+                    "location" : "Andheri, Mumbai"
+                }
+            ]
+        }
+    ]
+}
