@@ -8,9 +8,9 @@ export const ListTodo = ({ props }) => {
 
             {
                 props.map((el) => (
-                    <div key={el.data}>
+                    <div key={el.data} >
                         <p>{el.text}</p>
-                        <div style={{"display" : "flex"}}>
+                        <div style={{"display" : "flex", "flexDirection": "column",  "width": "200px"}}>
                             <button>Edit</button>
                             <button>Delete</button>
                         </div>
