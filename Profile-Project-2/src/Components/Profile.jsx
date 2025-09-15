@@ -79,11 +79,11 @@ export const Profile = () => {
                                 </div>
                                 <div className='socialMedia-container'>
                                     {
-                                    val.socialMedia.map((sl)=>(
-                                        <div key={sl.icon} className='socialMedia-icon'>
-                                            <img src={sl.icon} alt={sl.name} />
-                                        </div>
-                                    ))
+                                        val.socialMedia.map((sl) => (
+                                            <div key={sl.icon} className='socialMedia-icon'>
+                                                <img src={sl.icon} alt={sl.name} />
+                                            </div>
+                                        ))
                                     }
                                 </div>
                                 <div className="contact-info">
