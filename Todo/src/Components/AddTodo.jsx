@@ -24,9 +24,11 @@ export const AddTodo = () => {
   return (
     <>
       <div className='addTodo-container'>
-        <h1>Todo</h1>
-        <input onChange={(e) => setText(e.target.value)} type="text" placeholder='Enter the todo' />
-        <input onClick={handleFunck} type="button" value="Add Todo" />
+        <h1 style={{"color": "white"}}>Todo</h1>
+        <div>
+          <input onChange={(e) => setText(e.target.value)} type="text" placeholder='Enter the todo' />
+          <button onClick={handleFunck}><span class="text">Add Todo</span></button>
+        </div>
       </div>
       <ListTodo props={data} />
     </>
