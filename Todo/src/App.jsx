@@ -5,7 +5,9 @@ export function App() {
 
   return (
     <>
-      <AddTodo />
+      <div className='container'>
+        <AddTodo />
+      </div>
     </>
   )
 }
