@@ -8,9 +8,9 @@ function App() {
 
   return (
     <div className='container'>
-      <Card name="Albert Einstein" image={Albert_Einstein} disc = "disc 1"/>
-      <Card name="Issac Newton" image={Issac_Newton} disc = "disc 2"/>
-      <Card name="Madam Curie (Marie Curie)" image={Madam_Curie} disc = "disc 3"/>
+      <Card name="Albert Einstein" image={Albert_Einstein} disc = "disc 1" btn="Edit"/>
+      <Card name="Issac Newton" image={Issac_Newton} disc = "disc 2" btn="Delete"/>
+      <Card name="Madam Curie (Marie Curie)" image={Madam_Curie} disc = "disc 3" btn="Submit"/>
     </div>
   )
 }
