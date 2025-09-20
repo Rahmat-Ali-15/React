@@ -7,6 +7,7 @@ const Card = (props) => {
             <p id="user-name">{props.name}</p>
             <img id="user-img" src={props.image} alt={props.name} />
             <p id="user-desc">{props.disc}</p>
+            <button>{props.btn}</button>
         </div>
 
     )
