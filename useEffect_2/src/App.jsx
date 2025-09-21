@@ -20,6 +20,7 @@ export function App() {
 
   return (
     <>
+      <h1>Hello</h1>
       <h1>Count_1 {count1}</h1>
       <h1>Count_2 {count2}</h1>
       <button onClick={()=> setCount1((prev)=> prev-1)}>-</button>
