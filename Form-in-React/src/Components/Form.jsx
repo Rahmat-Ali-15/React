@@ -44,7 +44,9 @@ export const Form = () => {
 
   return (
     <>
-      <CustomComponent props = {field} />
+      <CustomComponent
+       props = {field}
+        />
     </>
   )
 }
