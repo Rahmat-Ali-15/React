@@ -31,7 +31,7 @@ export const Todo = () => {
     return(
         <>
             <h1>Todo</h1>
-            <input type="text" name="" id="" placeholder="add todo..." ref={dataRef} />
+            <input type="text" name="addTodo" id="" placeholder="add todo..." ref={dataRef} />
             <input type="button" value="Add Todo" onClick = {handleClick} />
         </>
     )

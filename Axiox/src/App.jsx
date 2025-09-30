@@ -7,7 +7,7 @@ export function App() {
 
   return (
     <>
-      <ApiCall />
+      {/* <ApiCall /> */}
       <Todo />
       <TodoList />
     </>
