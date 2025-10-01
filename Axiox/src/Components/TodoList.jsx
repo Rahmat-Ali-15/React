@@ -12,7 +12,7 @@ const getData = async (url) => {
 }
 
 
-export const TodoList = () => {
+export const TodoList = (props) => {
 
     const [apiData, setApiData] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
@@ -26,10 +26,16 @@ export const TodoList = () => {
                 isEdit: true
             }
             let res = await axios.patch(`${api}/${id}`, updateEdit);
-            console.log(res);
+            console.log(res, "res");
+            console.log(apiData, "apiData")
         } catch (error) {
-            console.log(error)
+            console.log(error,"error")
         }
+    }
+
+    const handleDel = async (id) => {
+        await axios.delete(`${api}/${id}`);
+        setApiData((prev) => prev.filter((item) => item.id !== id));
     }
 
     useEffect(() => {
@@ -50,7 +56,7 @@ export const TodoList = () => {
         }
         fetchData();
 
-    }, []);
+    }, [props.props]);
 
 
     if (isLoading) return <h1>Loading...</h1>
@@ -65,7 +71,7 @@ export const TodoList = () => {
                         <input type="checkbox" name="checkBox" />
                         <h1>{el.todo}</h1>
                         <button className="btn-edit" onClick={() => handleEdit(el.id)}>Edit</button>
-                        <button className="btn-del">Delete</button>
+                        <button onClick={() => handleDel(el.id)} className="btn-del">Delete</button>
                     </div>
                 ))
             }
