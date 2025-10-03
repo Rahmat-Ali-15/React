@@ -20,11 +20,28 @@ export const AddTodo = () => {
     localStorage.setItem("todoData", JSON.stringify([...data, todo]));
   };
 
-   const handleDel = (id) => {
-      const deleteItem = data.filter((el) => el.id !== id)
-      setData(deleteItem);
-      localStorage.setItem("todoData", JSON.stringify(deleteItem))
-  }
+  // delete item
+  const handleDel = (id) => {
+    const deleteItem = data.filter((el) => el.id !== id);
+    setData(deleteItem);
+    localStorage.setItem("todoData", JSON.stringify(deleteItem));
+  };
+
+  // Edit item
+
+  const handleEdit = (id) => {
+    console.log(id, "eidt id");
+    const editItem = data.map((item) => {
+      if(item.id === id){
+        return {...item, isEdited: !item.isEdited}
+      }
+      return item;
+    });
+    setData(editItem);
+    localStorage.setItem("todoData", JSON.stringify(editItem));
+
+    console.log(editItem, "updated todos");
+  };
 
   return (
     <>
@@ -44,7 +61,11 @@ export const AddTodo = () => {
           </button>
         </div>
       </div>
-      <ListTodo props={data} handleDel={handleDel} />
+      <ListTodo
+        props={data}
+        handleDel={handleDel}
+        handleEdit={handleEdit}
+      />
     </>
   );
 };
