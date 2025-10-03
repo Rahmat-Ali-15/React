@@ -7,7 +7,7 @@ import { MdEdit } from "react-icons/md";
 import { FaRegCheckCircle } from "react-icons/fa";
 import { GoCheckCircleFill } from "react-icons/go";
 
-export const ListTodo = ({ props, handleDel }) => {
+export const ListTodo = ({ props, handleDel, handleEdit }) => {
   // console.log(props)
 
   return (
@@ -25,7 +25,7 @@ export const ListTodo = ({ props, handleDel }) => {
             <p className="input-text">{el.text}</p>
           </div>
           <div className="edit-del-div">
-            <MdEdit className="edit-icon" />
+            <MdEdit className="edit-icon" onClick={()=> handleEdit(el.id)} />
             <MdDeleteForever
               className="del-icon"
               onClick={()=>handleDel(el.id)}
