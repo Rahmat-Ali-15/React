@@ -9,25 +9,27 @@
   flex-direction: column;
   align-items: center;
 }
+.addTodo-container>h1{
+  color: white;
+}
 .addTodo-container > div {
   margin-top: 10px;
   display: flex;
+  justify-content: center;
+  align-items: center;
   gap: 10px;
 }
 .addTodo-container > div > input {
-  padding: 7px 10px;
-  border-radius: 7px;
+  padding: 12px 20px;
+  border-radius: 10px;
   font-size: 18px;
-}
-.addTodo-container > div > input {
-  border: none;
+  outline: none;
 }
 .addTodo-container > div > input::placeholder {
   color: black;
   opacity: 0.6;
 }
-/* From Uiverse.io by cssbuttons-io */
-button {
+.todo-btn {
   align-items: center;
   background-image: linear-gradient(144deg, #af40ff, #5b42f3 50%, #00ddeb);
   border: 0;
@@ -51,24 +53,24 @@ button {
   transition: all 0.3s;
 }
 
-button:active,
-button:hover {
+.todo-btn:active,
+.todo-btn:hover {
   outline: 0;
 }
 
-button span {
+.todo-btn span {
   background-color: rgb(5, 6, 45);
-  padding: 16px 24px;
+  padding: 12px 24px;
   border-radius: 6px;
   width: 100%;
   height: 100%;
   transition: 300ms;
 }
 
-button:hover span {
+.todo-btn:hover span {
   background: none;
 }
 
-button:active {
+.todo-btn:active {
   transform: scale(0.9);
 }
