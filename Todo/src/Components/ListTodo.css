@@ -1,0 +1,48 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.list-todo-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 100px;
+  width: 400px;
+  padding: 7px 15px;
+  border-radius: 7px;
+  background-color: white;
+}
+.check-text-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+.check-icon {
+  font-size: 24px;
+}
+.fill-check-icon {
+  color: green;
+  font-size: 24px;
+  display: none;
+}
+.input-text {
+  color: black;
+  font-size: 24px;
+}
+.edit-del-div {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  align-items: center;
+}
+.edit-icon {
+  color: black;
+  font-size: 24px;
+}
+.del-icon {
+  color: white;
+  font-size: 24px;
+  border-radius: 50%;
+  background-color: red;
+}
