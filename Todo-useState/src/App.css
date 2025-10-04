@@ -1,0 +1,85 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+body{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: black;
+}
+/* AddTodo.jsx style */
+.main-container{
+    width: 500px;
+    margin-top: 50px;
+    padding: 50px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border-radius: 20px;
+    background: linear-gradient(rgb(166, 142, 195),rgb(128, 174, 204));
+}
+.add-todo-container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.add-todo-container>input,button{
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 8px;
+    outline: none;
+    border: none;
+}
+.add-todo-container>input{
+    width: 280px;
+}
+.add-todo-container>button{
+    color: white;
+    background: radial-gradient(red,yellow);
+}
+
+/* TodoList.jsx style */
+
+.container{
+    width: 100%;
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.todo-list-container{
+    width: 390px;
+    padding: 7px 10px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff;
+}
+.todo-list-container>div:nth-child(1),
+.todo-list-container>div:nth-child(2){
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+.todo-list-container>div:nth-child(1)>p{
+    font-size: 20px;
+    text-transform: capitalize;
+}
+.check-icon,
+.edit-icon,
+.del-icon{
+    color: black;
+    font-size: 24px;
+}
+.del-icon{
+    color: #fff;
+    border-radius: 50%;
+    background-color: red;
+}
