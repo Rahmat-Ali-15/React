@@ -24,6 +24,7 @@ export const AddTodo = () => {
     setInput("");
   };
 
+  // delete functionality
   const handleDel = (id) => {
     const delItem = data.filter((dl) => dl.id !== id);
     setData(delItem);
