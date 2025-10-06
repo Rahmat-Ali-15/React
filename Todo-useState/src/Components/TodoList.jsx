@@ -4,7 +4,7 @@ import { MdDeleteForever } from "react-icons/md";
 
 import "../App.css"
 
-export const TodoList = ({ data, handleDel }) => {
+export const TodoList = ({ data, handleDel,handleEdit }) => {
   return (
     <>
       <div className="container" >
@@ -13,9 +13,12 @@ export const TodoList = ({ data, handleDel }) => {
             <div>
               <FaRegCircleCheck className="check-icon" />
               <p>{el.text}</p>
+                {
+                  el.isEdited ? <input type="text" value={el.text} style={{textTransform: "capitalize"}} /> : <p>{el.text}</p>
+                }
             </div>
             <div style={{ display: "flex" }}>
-              <MdEdit className="edit-icon" />
+              <MdEdit className="edit-icon" onClick={()=> handleEdit(el.id)} />
               <MdDeleteForever className="del-icon" onClick={()=> handleDel(el.id)} />
             </div>
           </div>
