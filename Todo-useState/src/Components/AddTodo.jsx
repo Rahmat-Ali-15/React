@@ -30,6 +30,20 @@ export const AddTodo = () => {
     setData(delItem);
   };
 
+  // Edit functionality
+
+  const handleEdit = (id) => {
+    const editItem = data.map((el)=>{
+        if(el.id === id){
+         return {...el, isEdited: !el.isEdited}
+        }
+        return el;
+      })
+      // console.log(editItem)
+      setData(editItem);
+  }
+  // handleEdit()
+
   return (
     <>
       <div className="main-container">
@@ -46,6 +60,7 @@ export const AddTodo = () => {
         <TodoList
           data={data}
           handleDel={handleDel}
+          handleEdit={handleEdit}
         />
       </div>
     </>
