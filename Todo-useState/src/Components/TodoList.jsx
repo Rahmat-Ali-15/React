@@ -4,15 +4,22 @@ import { MdCancel } from "react-icons/md";
 import { GiConfirmed } from "react-icons/gi";
 
 import "../App.css";
+import { useRef } from "react";
 
 export const TodoList = ({
   data,
   handleDel,
   handleEdit,
-  setData,
   handleCancel,
   handleConfirm,
 }) => {
+  const modelInput = useRef(null);
+
+  const handleConfirm2 = (id) => {
+    let texts = modelInput.current.value;
+    handleConfirm(id, texts);
+  };
+
   return (
     <>
       <div className="container">
@@ -33,15 +40,8 @@ export const TodoList = ({
                     <h4>Edit your Todo</h4>
                     <input
                       type="text"
-                      value={el.text}
-                      onChange={(e) => {
-                        const updatedData = data.map((item) =>
-                          item.id === el.id
-                            ? { ...item, text: e.target.value }
-                            : item
-                        );
-                        setData(updatedData);
-                      }}
+                      ref={modelInput}
+                      defaultValue={el.text}
                     />
                   </div>
                   <div className="btn-container">
@@ -51,7 +51,7 @@ export const TodoList = ({
                     />
                     <GiConfirmed
                       className="confirm-icon"
-                      onClick={() => handleConfirm(el.id)}
+                      onClick={() => handleConfirm2(el.id)}
                     />
                   </div>
                 </div>
