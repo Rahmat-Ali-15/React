@@ -24,14 +24,15 @@ export const AddTodo = () => {
     setInput("");
   };
 
+
   // delete functionality
   const handleDel = (id) => {
     const delItem = data.filter((dl) => dl.id !== id);
     setData(delItem);
   };
 
-  // Edit functionality
 
+  // Edit functionality
   const handleEdit = (id) => {
     const editItem = data.map((el)=>{
         if(el.id === id){
@@ -39,10 +40,32 @@ export const AddTodo = () => {
         }
         return el;
       })
-      // console.log(editItem)
       setData(editItem);
   }
-  // handleEdit()
+
+  // handle cancel functionality
+  const handleCancel = (id) => {
+    const cancelItem = data.map((cl) => {
+      if(cl.id === id){
+        return {...cl, isEdited: false}
+      }
+      return cl;
+    });
+    setData(cancelItem);
+  }
+  
+
+  // handle Confirm functionality
+  const handleConfirm = (id) => {
+    const confirmItem = data.map((cf)=> {
+      if(cf.id === id){
+        return {...cf, isEdited : false}
+      }
+      return cf;
+    })
+    setData(confirmItem)
+  }
+
 
   return (
     <>
@@ -61,6 +84,9 @@ export const AddTodo = () => {
           data={data}
           handleDel={handleDel}
           handleEdit={handleEdit}
+          setData = {setData}
+          handleCancel = {handleCancel}
+          handleConfirm = {handleConfirm}
         />
       </div>
     </>
