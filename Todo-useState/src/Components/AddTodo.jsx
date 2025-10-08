@@ -17,6 +17,7 @@ export const AddTodo = () => {
       isEdited: false,
       isCompleted: false,
     };
+    console.log(todo, "xyz");
 
     setData((prev) => [todo, ...prev]);
 
@@ -32,6 +33,7 @@ export const AddTodo = () => {
 
   // Edit functionality
   const handleEdit = (id) => {
+    console.log("🚀 ~ id:", id);
     const editItem = data.map((el) => {
       if (el.id === id) {
         return { ...el, isEdited: !el.isEdited };
@@ -39,6 +41,7 @@ export const AddTodo = () => {
       return el;
     });
     setData(editItem);
+    console.log(editItem, "edititem");
   };
 
   // handle cancel functionality
@@ -49,9 +52,8 @@ export const AddTodo = () => {
       }
       return cl;
     });
-    console.log("🚀 ~ cancelItem:", cancleItems);
     setData(cancleItems);
-    console.log("🚀 ~ data:", data);
+    console.log("🚀 ~ setData:", cancleItems);
   };
 
   // handle Confirm functionality
