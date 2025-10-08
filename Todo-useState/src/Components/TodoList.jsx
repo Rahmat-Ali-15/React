@@ -18,7 +18,9 @@ export const TodoList = ({
   const handleConfirm2 = (id) => {
     let texts = modelInput.current.value;
     handleConfirm(id, texts);
+    modelInput.current.value = "";
   };
+  // const [button, setButton] = useState(null);
 
   return (
     <>
@@ -42,6 +44,7 @@ export const TodoList = ({
                       type="text"
                       ref={modelInput}
                       defaultValue={el.text}
+                      name="editInput"
                     />
                   </div>
                   <div className="btn-container">
