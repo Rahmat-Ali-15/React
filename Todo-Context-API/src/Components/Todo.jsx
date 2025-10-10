@@ -10,6 +10,7 @@ export const Todo = ()=> {
     const todoInputData = useRef(null);
     
     const handleTodo = () => {
+        if (todoInputData.current.value.trim()==="") return
         let todoInputVal = todoInputData.current.value;
 
         const todo = {
