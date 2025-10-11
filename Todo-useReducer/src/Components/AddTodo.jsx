@@ -1,18 +1,44 @@
-import { useReducer } from "react";
+import { useReducer, useRef } from "react";
 import { Reducer } from "../UseReducer/Reducer";
-
-const initialState = [];
+import { InitialValue } from "../UseReducer/Store";
+import { TodoList } from "./TodoList";
+import { ADD_TODO } from "../UseReducer/Action";
 
 export const AddTodo = () => {
-  const [state, dispatch] = useReducer(Reducer, initialState);
-  console.log(state);
-  console.log(dispatch);
+  const inputData = useRef(null);
+  
+  const [state, dispatch] = useReducer(Reducer, InitialValue);
+
+  console.log("🚀 ~ InitialValue:", InitialValue);
+  
+  const handleTodo = () => {
+    if (inputData.current.value.trim() === "") return;
+    let todoData = {
+      id: Date.now(),
+      todoText: inputData.current.value,
+      isEdited: false,
+      isCompleted: false
+    }
+    
+    console.log("🚀 ~ state:", state);
+    dispatch({type: ADD_TODO, payload: todoData})
+    inputData.current.value = "";
+
+  }
+
   return (
     <>
-      <h1>Add Todo</h1>
-      <div>
-        {/* <input type="text" value={state} onChange={(e)=> dispatch(type: "ADD_TODO", payload : e.target.value)} placeholder="Enter your Todo" /> */}
-        <button>Add Todo</button>
+      <div className="addTodo-container">
+        <h1>Add Todo</h1>
+        <div className="input-btn">
+          <input
+            type="text"
+            placeholder="Enter the task"
+            ref={inputData}
+          />
+          <button onClick={handleTodo}>Add Task</button>
+        </div>
+        <TodoList state={state} dispatch={dispatch} />
       </div>
     </>
   );
