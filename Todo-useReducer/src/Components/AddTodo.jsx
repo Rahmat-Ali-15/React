@@ -9,7 +9,6 @@ export const AddTodo = () => {
   
   const [state, dispatch] = useReducer(Reducer, InitialValue);
 
-  console.log("🚀 ~ InitialValue:", InitialValue);
   
   const handleTodo = () => {
     if (inputData.current.value.trim() === "") return;
