@@ -1,0 +1,31 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.addTodo-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+.input-btn{
+    display: flex;
+    gap: 10px;
+}
+.input-btn>input{
+    width: 250px;
+    padding: 7px 10px;
+    outline: none;
+    border: 1px solid black;
+    border-radius: 8px;
+}
+.input-btn>button{
+    padding: 8px 10px;
+    outline: none;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    background: radial-gradient(red, yellow);
+}
