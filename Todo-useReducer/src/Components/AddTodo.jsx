@@ -18,6 +18,7 @@ export const AddTodo = () => {
       isEdited: false,
       isCompleted: false
     }
+    console.log("🚀 ~ todoData:", todoData);
     dispatch({type: ADD_TODO, payload: todoData})
     inputData.current.value = "";
 
