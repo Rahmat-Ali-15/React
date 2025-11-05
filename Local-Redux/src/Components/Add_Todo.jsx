@@ -31,7 +31,7 @@ export const AddTodo = () => {
       />
       <button onClick={addTodos}>Add Todo</button>
 
-      <TodoList />
+      {/* <TodoList /> */}
     </>
   );
 };
