@@ -1,0 +1,29 @@
+import { useSelector } from "react-redux";
+import {Navigate} from "react-router-dom"
+import { AddTodo } from "../Components/Add_Todo";
+import { TodoList } from "../Components/Todo_List";
+
+export const Home = () => {
+  const isAuth = useSelector((state) => state.auth.isAuth);
+  const token = useSelector((state) => state.auth.token);
+
+  if (!isAuth) {
+    return <Navigate to="/login" />;
+  }
+
+  return (
+    <>
+      <h1
+        style={{
+          textTransform: "capitalize",
+          fontFamily: "monospace",
+          color: "tomato",
+        }}
+      >
+        {token}
+      </h1>
+      <AddTodo />
+      <TodoList />
+    </>
+  );
+};
