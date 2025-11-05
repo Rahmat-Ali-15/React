@@ -1,11 +1,11 @@
 import './App.css'
-import { AddTodo } from './Components/ADD_TODO'
+import { Router_Page } from './Routes/Routes.route'
 
 export function App() {
 
   return (
     <>
-      <AddTodo />
+      <Router_Page />
     </>
   )
 }
