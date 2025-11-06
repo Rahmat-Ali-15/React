@@ -1,4 +1,4 @@
-import { LocalData } from "../../Local_Storage/LocalStorage";
+import { LocalData, SaveData } from "../../Local_Storage/LocalStorage";
 import { LOGIN_FAILURE, LOGIN_SUCCESS } from "./action";
 
 
@@ -13,6 +13,7 @@ const initialState = {
 export const AuthReducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case LOGIN_SUCCESS:
+      SaveData("token", payload)
       return {
         ...state,
         isAuth: true,
