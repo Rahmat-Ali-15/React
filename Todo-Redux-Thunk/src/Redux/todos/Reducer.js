@@ -1,0 +1,38 @@
+import * as abrakadabra from "./ActionsTypes";
+
+const initialState = {
+    todos: [],
+    isAuth: false,
+    isLoading: false,
+    isError: false
+}
+
+export const todoReducer = (oldState= initialState, {type, payload}) => {
+    switch(type){
+        case abrakadabra.GET_LOGIN_REQUEST: {
+            return {
+                ...oldState,
+                isLoading: true,
+                isError: false
+            }
+        }
+        case abrakadabra.GET_LOGIN_SUCCESS: {
+            return {
+                ...oldState,
+                isLoading: false,
+                isError: false,
+                todos: [...oldState.todos, payload]
+            }
+        }
+        case abrakadabra.GET_LOGIN_FAILURE: {
+            return {
+                ...oldState,
+                isLoading: false,
+                isError: true,
+            }
+        }
+        default:
+            oldState
+        
+    }
+}
