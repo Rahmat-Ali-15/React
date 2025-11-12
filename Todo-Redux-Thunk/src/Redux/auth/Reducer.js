@@ -1,7 +1,11 @@
+import { loadData } from "../../utils/localStorage";
 import * as abrakadabra from "./ActionsTypes";
 
+
+const token = loadData("token")
+
 const initialState = {
-    todos: [],
+    token: token || "",
     isAuth: false,
     isLoading: false,
     isError: false
@@ -33,6 +37,5 @@ export const authReducer = (oldState= initialState, {type, payload}) => {
         }
         default:
             oldState
-        
     }
 }
