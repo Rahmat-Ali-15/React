@@ -4,8 +4,6 @@ import { Link } from "react-router-dom";
 
 export const SinglePage = () => {
   const [store, setStore] = useState([]);
-  // console.log("🚀 ~ setStore:", setStore);
-  // const handleInfo = () => {};
 
   useEffect(() => {
     const getData = () => {
