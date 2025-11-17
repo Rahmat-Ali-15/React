@@ -36,6 +36,6 @@ export const authReducer = (oldState= initialState, {type, payload}) => {
             }
         }
         default:
-            oldState
+          return  oldState
     }
 }
