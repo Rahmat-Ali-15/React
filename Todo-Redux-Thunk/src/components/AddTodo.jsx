@@ -1,30 +1,40 @@
 import { useRef } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
-import * as abc from "../Redux/todos/ActionsTypes";
-import { AddTodos } from "../Redux/todos/Action";
+import { addTodoFailure, addTodoRequest, addTodoSuccess } from "../Redux/todos/Action";
+import axios from "axios";
+import { TodoList } from "./TodoList";
+
+const API = import.meta.env.VITE_API;
+console.log("🚀 ~ API:", API);
 
 export const AddTodo = () => {
+  const value = useSelector((state) => state.todo);
+  console.log("🚀 ~ value:", value);
+
   const elementData = useRef(null);
   const dispatch = useDispatch();
 
   const handleInputVal = () => {
-    dispatch({ type: abc.ADD_TODO_REQUEST });
     const values = elementData.current.value;
-    console.log("🚀 ~ values:", values);
-    dispatch(AddTodos({ values }));
 
-    // const todos = {
-    //   id: Date.now(),
-    //   text: values,
-    //   isEdit: false,
-    //   isComplete: false,
-    // };
-    // console.log("🚀 ~ todos:", todos);
+    const obj = {
+      id: Date.now(),
+      text: values,
+      isEdit: false,
+      isComplete: false,
+    };
 
-    // elementData.current.value= "";
-
+    dispatch(addTodoRequest());
+    axios
+      .post(API, obj)
+      .then((res) => dispatch(addTodoSuccess(res.data)))
+      .catch((err) => dispatch(addTodoFailure(err)));
   };
+
+  if (value.isLoading) {
+    return <h5>Loading...</h5>;
+  }
 
   return (
     <>
@@ -39,6 +49,7 @@ export const AddTodo = () => {
         value="Add"
         onClick={handleInputVal}
       />
+      <TodoList />
     </>
   );
 };
