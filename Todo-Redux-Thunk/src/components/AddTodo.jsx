@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 import {
   addTodoFailure,
@@ -12,8 +12,6 @@ import { TodoList } from "./TodoList";
 const API = import.meta.env.VITE_API;
 
 export const AddTodo = () => {
-  const value = useSelector((state) => state.todo);
-  console.log("🚀 ~ value:", value);
 
   const elementData = useRef(null);
   const dispatch = useDispatch();
@@ -31,13 +29,10 @@ export const AddTodo = () => {
     dispatch(addTodoRequest());
     axios
       .post(API, obj)
-      .then((res) => dispatch(addTodoSuccess(res.data)))
+      .then((res) =>{ dispatch(addTodoSuccess(res.data))})
       .catch((err) => dispatch(addTodoFailure(err)));
   };
 
-  if (value.isLoading) {
-    return <h5>Loading...</h5>;
-  }
 
   return (
     <>
