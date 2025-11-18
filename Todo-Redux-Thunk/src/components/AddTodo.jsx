@@ -1,12 +1,15 @@
 import { useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { addTodoFailure, addTodoRequest, addTodoSuccess } from "../Redux/todos/Action";
+import {
+  addTodoFailure,
+  addTodoRequest,
+  addTodoSuccess,
+} from "../Redux/todos/Action";
 import axios from "axios";
 import { TodoList } from "./TodoList";
 
 const API = import.meta.env.VITE_API;
-console.log("🚀 ~ API:", API);
 
 export const AddTodo = () => {
   const value = useSelector((state) => state.todo);
