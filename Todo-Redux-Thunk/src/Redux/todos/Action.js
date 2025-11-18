@@ -40,20 +40,20 @@ export const addTodoSuccess = (payload) => {
     }
 }
 
-// eidt functionality
+// edit functionality
 
-export const eiditTodoRequest = () => {
+export const editTodoRequest = () => {
     return {
         type: types.EDITS_TODO_REQUEST,
     };
 }
-export const eiditTodoSuccess = (payload) => {
+export const editTodoSuccess = (payload) => {
     return {
         type: types.EDITS_TODO_SUCCESS,
         payload: payload
     };
 }
-export const eiditTodoFailure = (payload) => {
+export const editTodoFailure = (payload) => {
     return {
         type: types.EDITS_TODO_FAILURE,
         payload: payload
