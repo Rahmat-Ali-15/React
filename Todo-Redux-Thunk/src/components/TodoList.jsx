@@ -1,5 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
 import {
+  editTodoFailure,
+  editTodoRequest,
+  editTodoSuccess,
   getFailureTodo,
   getRequestTodo,
   getSuccessTodo,
@@ -14,8 +17,6 @@ export const TodoList = () => {
 
   const { todos, isError, isLoading } = useSelector((state) => state.todo);
 
-
-
   const getApiCall = () => {
     dispatch(getRequestTodo());
     axios
@@ -28,6 +29,14 @@ export const TodoList = () => {
     getApiCall();
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  // const handleEdit = (id) => {
+  //   console.log("🚀 ~ id:", id);
+  //   dispatch(editTodoRequest());
+  //   const updateEditTodo = todos.map(el=> el.id===id ? {...el, isEdit: !el.isEdit} : el);
+  //   console.log("🚀 ~ updateEditTodo:", updateEditTodo);
+  //   axios.patch(`${API}/${id}`,updateEditTodo).then((res)=> dispatch(editTodoSuccess(res.data))).catch((err)=> dispatch(editTodoFailure(err)));
+  // }
 
   if (isLoading) {
     return <h5>Loading...</h5>;
@@ -52,7 +61,7 @@ export const TodoList = () => {
           <p>{el.id}</p>
           <div>
             <button>Edit</button>
-            {/* <button>Edit</button> */}
+            {/* <button onClick={()=> handleEdit(el.id)}>Edit</button> */}
             <button>Delete</button>
           </div>
         </div>
