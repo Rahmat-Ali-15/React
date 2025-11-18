@@ -39,3 +39,23 @@ export const addTodoSuccess = (payload) => {
         payload: payload
     }
 }
+
+// eidt functionality
+
+export const eiditTodoRequest = () => {
+    return {
+        type: types.EDITS_TODO_REQUEST,
+    };
+}
+export const eiditTodoSuccess = (payload) => {
+    return {
+        type: types.EDITS_TODO_SUCCESS,
+        payload: payload
+    };
+}
+export const eiditTodoFailure = (payload) => {
+    return {
+        type: types.EDITS_TODO_FAILURE,
+        payload: payload
+    };
+}
