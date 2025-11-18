@@ -12,17 +12,9 @@ const API = import.meta.env.VITE_API;
 export const TodoList = () => {
   const dispatch = useDispatch();
 
-  const { todos } = useSelector((state) => state.todo);
+  const { todos, isError, isLoading } = useSelector((state) => state.todo);
 
-  // const handleEdit = (id) => {
-  //   const updateTodo = todos.map((el)=> {
-  //     if(el.id === id){
-  //       return {...el, isEdit: true}
-  //     }
-  //     return el
-  //   })
-  //   dispatch(addTodoSuccess(updateTodo))
-  // }
+
 
   const getApiCall = () => {
     dispatch(getRequestTodo());
@@ -33,15 +25,19 @@ export const TodoList = () => {
   };
 
   useEffect(() => {
-    console.log("I am invoked");
-    getApiCall;
+    getApiCall();
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  if (isLoading) {
+    return <h5>Loading...</h5>;
+  }
 
   return (
     <>
       <h1>Todo List</h1>
-      {todos.map((el) => (
+      {isError && <h1>Something went wrong...❌</h1>}    
+      {todos.length > 0 && todos.map((el) => (
         <div
           key={el.id}
           style={{
@@ -55,8 +51,8 @@ export const TodoList = () => {
           <p>{el.text}</p>
           <p>{el.id}</p>
           <div>
-            {/* <button onClick={()=> handleEdit(el.id)}>Edit</button> */}
             <button>Edit</button>
+            {/* <button>Edit</button> */}
             <button>Delete</button>
           </div>
         </div>
