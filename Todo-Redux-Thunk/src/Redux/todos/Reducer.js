@@ -58,6 +58,31 @@ export const todoReducer = (oldState = initialState, { type, payload }) => {
       };
     }
 
+    // Here we are using eidt todo...
+
+    case abrakadabra.EDITS_TODO_REQUEST: {
+      return {
+        ...oldState,
+        isLoading: true,
+        isError: false,
+      };
+    }
+    case abrakadabra.EDITS_TODO_SUCCESS: {
+      return {
+        ...oldState,
+        isLoading: false,
+        isError: false,
+        todos: payload
+      };
+    }
+    case abrakadabra.EDITS_TODO_FAILURE: {
+      return {
+        ...oldState,
+        isLoading: false,
+        isError: true,
+      };
+    }
+
     default:
       return oldState;
   }
