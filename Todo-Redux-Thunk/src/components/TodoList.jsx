@@ -1,5 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
 import {
+  deleteTodoFailure,
+  deleteTodoRequest,
+  deleteTodoSuccess,
   editTodoFailure,
   editTodoRequest,
   editTodoSuccess,
@@ -25,10 +28,64 @@ export const TodoList = () => {
       .catch((err) => dispatch(getFailureTodo(err)));
   };
 
-  useEffect(() => {
+    useEffect(() => {
     getApiCall();
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+//   const handleEdit = (id) => {
+//   console.log("🚀 ~ id:", id);
+//   dispatch(editTodoRequest());
+  
+//   // Find the specific todo that's being edited
+//   const todoToUpdate = todos.find(el => el.id === id);
+//   if (!todoToUpdate) {
+//     dispatch(editTodoFailure(new Error("Todo not found")));
+//     return;
+//   }
+
+//   // Create updated todo with toggled isEdit
+//   const updatedTodo = {
+//     ...todoToUpdate,
+//     isEdit: !todoToUpdate.isEdit
+//   };
+
+//   // Update local state
+//   const updatedTodos = todos.map(el => 
+//     el.id === id ? updatedTodo : el
+//   );
+
+//   console.log("🚀 ~ updatedTodo:", updatedTodo);
+  
+//   // Send ONLY the specific todo to update, not the entire array
+//   axios.patch(`${API}/${id}`, updatedTodo)
+//     .then((res) => {
+//       console.log("🚀 ~ res:", res);
+//       // Use our locally updated state
+//       dispatch(editTodoSuccess(updatedTodos));
+//     })
+//     .catch((err) => {
+//       console.error("Edit failed:", err);
+//       dispatch(editTodoFailure(err));
+//     });
+// }
+
+// const handleDelete = (id) => {
+//   dispatch(deleteTodoRequest());
+
+//   const updateTodo = todos.filter((dl)=> dl.id !== id);
+
+//   axios.delete(`${API}/${id}`)
+//     .then((res) => {
+//       console.log("🚀 ~ res:", res);
+//       dispatch(deleteTodoSuccess(updateTodo));
+//     })
+//     .catch((err) => {
+//       dispatch(deleteTodoFailure(err));
+//     });
+// }
+
+
 
   // const handleEdit = (id) => {
   //   console.log("🚀 ~ id:", id);
@@ -60,9 +117,9 @@ export const TodoList = () => {
           <p>{el.text}</p>
           <p>{el.id}</p>
           <div>
-            <button>Edit</button>
-            {/* <button onClick={()=> handleEdit(el.id)}>Edit</button> */}
-            <button>Delete</button>
+            {/* <button>Edit</button> */}
+            {/* <button onClick={()=> handleEdit(el.id)}>Edit</button>
+            <button onClick={()=> handleDelete(el.id)}>Delete</button> */}
           </div>
         </div>
       ))}
