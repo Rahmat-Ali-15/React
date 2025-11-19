@@ -59,3 +59,24 @@ export const editTodoFailure = (payload) => {
         payload: payload
     };
 }
+
+
+// edit functionality
+
+export const deleteTodoRequest = () => {
+    return {
+        type: types.EDITS_TODO_REQUEST,
+    };
+}
+export const deleteTodoSuccess = (payload) => {
+    return {
+        type: types.EDITS_TODO_SUCCESS,
+        payload: payload
+    };
+}
+export const deleteTodoFailure = (payload) => {
+    return {
+        type: types.EDITS_TODO_FAILURE,
+        payload: payload
+    };
+}
