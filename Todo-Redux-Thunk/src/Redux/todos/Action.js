@@ -27,10 +27,9 @@ export const addTodoRequest = () => {
     };
 };
 
-export const addTodoFailure = (payload) => {
+export const addTodoFailure = () => {
     return {
-        type: types.ADD_TODO_FAILURE,
-        payload: payload
+        type: types.ADD_TODO_FAILURE
     }
 }
 export const addTodoSuccess = (payload) => {
@@ -50,13 +49,12 @@ export const editTodoRequest = () => {
 export const editTodoSuccess = (payload) => {
     return {
         type: types.EDITS_TODO_SUCCESS,
-        payload: payload
+        payload: {id: payload[0], data: payload[1]}
     };
 }
-export const editTodoFailure = (payload) => {
+export const editTodoFailure = () => {
     return {
-        type: types.EDITS_TODO_FAILURE,
-        payload: payload
+        type: types.EDITS_TODO_FAILURE
     };
 }
 
@@ -65,18 +63,17 @@ export const editTodoFailure = (payload) => {
 
 export const deleteTodoRequest = () => {
     return {
-        type: types.EDITS_TODO_REQUEST,
+        type: types.DELETE_TODO_REQUEST,
     };
 }
 export const deleteTodoSuccess = (payload) => {
     return {
-        type: types.EDITS_TODO_SUCCESS,
+        type: types.DELETE_TODO_SUCCESS,
         payload: payload
     };
 }
-export const deleteTodoFailure = (payload) => {
+export const deleteTodoFailure = () => {
     return {
-        type: types.EDITS_TODO_FAILURE,
-        payload: payload
+        type: types.DELETE_TODO_FAILURE
     };
 }
