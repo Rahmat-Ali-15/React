@@ -72,10 +72,39 @@ export const todoReducer = (oldState = initialState, { type, payload }) => {
         ...oldState,
         isLoading: false,
         isError: false,
-        todos: payload
+        todos: oldState.todos.map((el) =>
+          el.id === payload.id ? payload.data : el
+        ),
       };
     }
     case abrakadabra.EDITS_TODO_FAILURE: {
+      return {
+        ...oldState,
+        isLoading: false,
+        isError: true,
+      };
+    }
+
+    // Here we are using delete todo
+
+    case abrakadabra.DELETE_TODO_REQUEST: {
+      return {
+        ...oldState,
+        isLoading: true,
+        isError: false,
+      };
+    }
+
+    case abrakadabra.DELETE_TODO_SUCCESS: {
+      return {
+        ...oldState,
+        isLoading: false,
+        isError: false,
+        todos: payload,
+      };
+    }
+
+    case abrakadabra.DELETE_TODO_FAILURE: {
       return {
         ...oldState,
         isLoading: false,
