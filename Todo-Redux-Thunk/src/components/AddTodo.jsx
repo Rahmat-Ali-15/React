@@ -19,9 +19,11 @@ export const AddTodo = () => {
   const handleInputVal = () => {
     const values = elementData.current.value;
 
+    if(values.trim() === "") return;
+
     const obj = {
       id: Date.now(),
-      text: values,
+      text: values.trim(),
       isEdit: false,
       isComplete: false,
     };
