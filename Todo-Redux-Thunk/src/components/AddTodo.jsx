@@ -1,40 +1,22 @@
 import { useRef } from "react";
 import { useDispatch } from "react-redux";
 
-import {
-  addTodoFailure,
-  addTodoRequest,
-  addTodoSuccess,
-} from "../Redux/todos/Action";
-import axios from "axios";
-import { TodoList } from "./TodoList";
+import { getApiCall, handleInputVal } from "../Redux/todos/Action";
 
 const API = import.meta.env.VITE_API;
 
 export const AddTodo = () => {
-
-  const elementData = useRef(null);
   const dispatch = useDispatch();
+  const elementData = useRef(null);
 
-  const handleInputVal = () => {
-    const values = elementData.current.value;
-
-    if(values.trim() === "") return;
-
-    const obj = {
-      id: Date.now(),
-      text: values.trim(),
-      isEdit: false,
-      isComplete: false,
-    };
-
-    dispatch(addTodoRequest());
-    axios
-      .post(API, obj)
-      .then((res) =>{ dispatch(addTodoSuccess(res.data))})
-      .catch((err) => dispatch(addTodoFailure(err)));
+  const handleData = () => {
+    console.log("i am  invoking");
+    handleInputVal({ dispatch, elementData })
+      .then(() => {
+        dispatch(getApiCall);
+      })
+      .catch((err) => console.log(err));
   };
-
 
   return (
     <>
@@ -47,9 +29,8 @@ export const AddTodo = () => {
       <input
         type="button"
         value="Add"
-        onClick={handleInputVal}
+        onClick={handleData}
       />
-      <TodoList />
     </>
   );
 };
