@@ -1,5 +1,6 @@
 import './App.css'
 import { AddTodo } from './components/AddTodo'
+import { TodoList } from './components/TodoList'
 
 export function App() {
 
@@ -7,6 +8,7 @@ export function App() {
     <>
       <h1>Redux todos</h1>
       <AddTodo />
+      <TodoList/>
     </>
   )
 }
