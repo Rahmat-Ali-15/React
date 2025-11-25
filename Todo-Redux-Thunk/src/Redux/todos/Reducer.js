@@ -112,6 +112,32 @@ export const todoReducer = (oldState = initialState, { type, payload }) => {
       };
     }
 
+    // Cancel button
+    case abrakadabra.CANCEL_TODO_REQUEST: {
+      return {
+        ...oldState,
+        isLoading: true,
+        isError: false,
+      };
+    }
+
+    case abrakadabra.CANCEL_TODO_SUCCESS: {
+      return {
+        ...oldState,
+        isLoading: false,
+        isError: false,
+        todos: payload,
+      };
+    }
+
+    case abrakadabra.CANCEL_TODO_FAILURE: {
+      return {
+        ...oldState,
+        isLoading: false,
+        isError: true,
+      };
+    }
+
     default:
       return oldState;
   }
