@@ -1,17 +1,15 @@
+/* eslint-disable no-unused-vars */
 import { useDispatch, useSelector } from "react-redux";
 import {
-  deleteTodoFailure,
-  deleteTodoRequest,
-  deleteTodoSuccess,
-  editTodoFailure,
-  editTodoRequest,
-  editTodoSuccess,
-  getFailureTodo,
-  getRequestTodo,
-  getSuccessTodo,
+  handleCancel,
+  handleConfirm,
+  handleDelete,
+  handleEdit,
 } from "../Redux/todos/Action";
 import axios from "axios";
 import { useEffect } from "react";
+
+import { getApiCall } from "../Redux/todos/Action";
 
 const API = import.meta.env.VITE_API;
 
@@ -20,44 +18,36 @@ export const TodoList = () => {
 
   const { todos, isError, isLoading } = useSelector((state) => state.todo);
 
-  const getApiCall = () => {
-    dispatch(getRequestTodo());
-    axios
-      .get(API)
-      .then((res) => dispatch(getSuccessTodo(res.data)))
-      .catch((err) => dispatch(getFailureTodo(err)));
-  };
+  // const handleEdit = (id) => {
+  //   dispatch(editTodoRequest());
+  //   const updateEdit = todos
+  //     .map((el) => (el.id === id ? { ...el, isEdit: !el.isEdit } : null))
+  //     .filter((el) => el !== null);
+  //   console.log("🚀 ~ updateEdit:", updateEdit);
 
-  const handleEdit = (id) => {
-    dispatch(editTodoRequest());
-    const updateEdit = todos
-      .map((el) => (el.id === id ? { ...el, isEdit: !el.isEdit } : null))
-      .filter((el) => el !== null);
-    console.log("🚀 ~ updateEdit:", updateEdit);
+  //   axios
+  //     .patch(`${API}/${id}`, ...updateEdit)
+  //     .then((res) => {
+  //       dispatch(editTodoSuccess([id, res.data]));
+  //     })
+  //     .catch((err) => {
+  //       dispatch(editTodoFailure(err));
+  //     });
+  // };
 
-    axios
-      .patch(`${API}/${id}`, ...updateEdit)
-      .then((res) => {
-        dispatch(editTodoSuccess([id, res.data]));
-      })
-      .catch((err) => {
-        dispatch(editTodoFailure(err));
-      });
-  };
-
-  const handleDelete = (id) => {
-    dispatch(deleteTodoRequest());
-    let deleteItem = todos.filter((dl) => dl.id !== id);
-    axios
-      .delete(`${API}/${id}`)
-      .then((res) => {
-        console.log("res", res);
-        dispatch(deleteTodoSuccess(deleteItem));
-      })
-      .catch((err) => {
-        dispatch(deleteTodoFailure(err));
-      });
-  };
+  // const handleDelete = (id) => {
+  //   dispatch(deleteTodoRequest());
+  //   let deleteItem = todos.filter((dl) => dl.id !== id);
+  //   axios
+  //     .delete(`${API}/${id}`)
+  //     .then((res) => {
+  //       console.log("res", res);
+  //       dispatch(deleteTodoSuccess(deleteItem));
+  //     })
+  //     .catch((err) => {
+  //       dispatch(deleteTodoFailure(err));
+  //     });
+  // };
 
   // Handle edit 2nd logic
 
@@ -121,9 +111,9 @@ export const TodoList = () => {
   // };
 
   useEffect(() => {
-    getApiCall();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    // getApiCall(dispatch);
+    dispatch(getApiCall);
+  }, [dispatch]);
 
   if (isLoading) {
     return <h5>Loading...</h5>;
@@ -185,15 +175,33 @@ export const TodoList = () => {
             {el.isEdit && el.isEdit ? (
               <>
                 <div>
-                  <button>Cancel</button>
-                  <button>Delete</button>
+                  <button
+                    onClick={() => handleCancel({ id: el.id, dispatch, todos })}
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    onClick={() =>
+                      handleConfirm({ id: el.id, todos, dispatch })
+                    }
+                  >
+                    Confirm
+                  </button>
                 </div>
               </>
             ) : (
               <>
                 <div>
-                  <button onClick={() => handleEdit(el.id)}>Edit</button>
-                  <button onClick={() => handleDelete(el.id)}>Delete</button>
+                  <button
+                    onClick={() => handleEdit({ id: el.id, todos, dispatch })}
+                  >
+                    Edit
+                  </button>
+                  <button
+                    onClick={() => handleDelete({ id: el.id, todos, dispatch })}
+                  >
+                    Delete
+                  </button>
                 </div>
               </>
             )}
