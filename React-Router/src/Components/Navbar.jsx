@@ -6,6 +6,8 @@ export const Navbar = () => {
     { path: "/about", title: "About" },
     { path: "/contact", title: "Contact" },
     { path: "/single_page", title: "User" },
+    { path: "/auth", title: "Auth" },
+    { path: "/show_login", title: "Show Login" },
   ];
 
   const defaultStyle = {
