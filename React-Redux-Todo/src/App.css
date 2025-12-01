@@ -1,0 +1,138 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+body{
+    background-color: black;
+}
+
+/* Add todo component */
+.addtodo-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 35px;
+}
+.addtodo-container>h1{
+    margin-top: 25px;
+    color: white;
+}
+.todo-input-div{
+    width: 600px;
+    display: flex;
+    gap: 10px;
+}
+.todo-input-div>input{
+    width: 70%;
+    padding: 12px 15px;
+    font-size: 16px;
+    outline: none;
+    border-radius: 7px;
+    border: 3px solid transparent;
+}
+.todo-input-div>input:focus{
+    border-color: #3b82f6;
+    box-shadow: 0 0 5px rgba(59, 130, 246, 0.5);
+}
+.addTodo-btn {
+  width: 30%;
+  outline: none;
+  border: none;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 15px;
+  background-color: #3b82f6;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.addTodo-btn:hover {
+  background-color: #2563eb;
+  transform: translateY(-1px);
+}
+
+/* Todo list component  */
+.no-task-msg {
+  text-align: center;
+  color: gray;
+  font-size: 18px;
+  margin-top: 20px;
+}
+
+.todolist-container-div{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.todolist-content{
+    width: 600px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 10px 15px 20px;
+    border-radius: 10px;
+    background-color: #ebf2ff;
+}
+.list-btns{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.list-btns button{
+    padding: 7px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 10px;
+    color: white;
+}
+.edit-btn {
+  background-color: #3b82f6;
+  cursor: pointer;
+}
+.edit-btn:hover {
+  background-color: #2563eb;
+  transform: translateY(-1px);
+}
+.delete-btn{
+    background-color: #ef4444;
+    cursor: pointer;
+}
+.delete-btn:hover {
+  background-color: #dc2626;
+  transform: translateY(-1px);
+}
+.cancel-btn{
+  background-color: #6b7280;
+  color: white;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.cancel-btn:hover {
+  background-color: #4b5563;
+  transform: translateY(-1px);
+}
+.confirm-btn {
+  background-color: #22c55e;
+  color: white;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 15px;
+  transition: 0.2s ease;
+}
+.confirm-btn:hover {
+  background-color: #16a34a;
+  transform: translateY(-1px);
+}
