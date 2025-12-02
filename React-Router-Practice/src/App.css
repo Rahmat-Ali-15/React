@@ -1,0 +1,18 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.navbar-container{
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.product-details{
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  align-items: center;
+}
