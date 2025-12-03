@@ -1,16 +1,22 @@
 import React from "react";
 
-// const expensiveOperation = (value) => {
-//   let start = Date.now();
-//   while (Date.now() - start <= value) {
-//     continue;
-//   }
-//   return true;
-// };
+const expensiveOperation = (value) => {
+  let start = Date.now();
+  while (Date.now() - start <= value) {
+    continue;
+  }
+  return true;
+};
 
-export const TodosItem = ({ id, currentTodo, status }) => {
+export const TodosItem = ({
+  id,
+  currentTodo,
+  status,
+  handleEdit,
+  handleDelete,
+}) => {
   console.log("🚀 ~ currentTodo:", currentTodo);
-//   expensiveOperation(200);
+  expensiveOperation(200);
 
   return (
     <>
@@ -25,9 +31,22 @@ export const TodosItem = ({ id, currentTodo, status }) => {
         <h3>{id}</h3>
         <h3>{currentTodo}</h3>
         <h3>{status ? "true" : "false"}</h3>
+        <button onClick={() => handleEdit(id)}>Edit</button>
+        <button onClick={() => handleDelete(id)}>Delete</button>
       </div>
     </>
   );
 };
 
-export default React.memo(TodosItem);
+const checkEquals = (prevValue, currentValue) => {
+  return (
+    prevValue.currentTodo === currentValue.currentTodo &&
+    prevValue.status === currentValue.status
+  );
+};
+
+// this is default export
+export default React.memo(TodosItem, checkEquals);
+
+// this is name export
+// export const MemoizedTodosItem = React.memo(TodosItem,checkEquals)
