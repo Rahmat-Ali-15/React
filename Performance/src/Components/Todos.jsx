@@ -1,5 +1,5 @@
 import {useState } from "react";
-import  TodosItem  from "./TodosItem";
+import  {TodosItem}  from "./TodosItem";
 
 const initialTodo = [
   {

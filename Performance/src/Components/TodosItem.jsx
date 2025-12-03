@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 
 const expensiveOperation = (value) => {
   let start = Date.now();
@@ -15,8 +15,9 @@ export const TodosItem = ({
   handleEdit,
   handleDelete,
 }) => {
-  console.log("🚀 ~ currentTodo:", currentTodo);
-  expensiveOperation(200);
+  // expensiveOperation(200);
+
+  useMemo(() => expensiveOperation(200), []);
 
   return (
     <>
@@ -38,15 +39,15 @@ export const TodosItem = ({
   );
 };
 
-const checkEquals = (prevValue, currentValue) => {
-  return (
-    prevValue.currentTodo === currentValue.currentTodo &&
-    prevValue.status === currentValue.status
-  );
-};
+// const checkEquals = (prevValue, currentValue) => {
+//   return (
+//     prevValue.currentTodo === currentValue.currentTodo &&
+//     prevValue.status === currentValue.status
+//   );
+// };
 
 // this is default export
-export default React.memo(TodosItem, checkEquals);
+// export default React.memo(TodosItem, checkEquals);
 
 // this is name export
 // export const MemoizedTodosItem = React.memo(TodosItem,checkEquals)
