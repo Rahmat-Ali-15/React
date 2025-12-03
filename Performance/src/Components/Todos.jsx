@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { TodosItem } from "./TodosItem";
+import {useState } from "react";
+import  TodosItem  from "./TodosItem";
 
 const initialTodo = [
   {
@@ -15,7 +15,7 @@ const initialTodo = [
 ];
 export const Todos = () => {
   const [text, setText] = useState("");
-  const [data, setDeta] = useState(initialTodo);
+  const [data, setData] = useState(initialTodo);
 
   const handleInput = () => {
     const value = {
@@ -23,9 +23,33 @@ export const Todos = () => {
       currentTodo: text,
       status: false,
     };
-    setDeta([...data, value]);
+    setData([...data, value]);
     setText("");
   };
+
+  const handleEdit = (id) => {
+    const todoEdit = data.map((ed) =>
+      ed.id === id ? { ...ed, status: !ed.status } : ed
+    );
+    setData(todoEdit)
+  }
+  const handleDelete = (id) => {
+    const todoDelete = data.filter((dl)=> dl.id !== id);
+    setData(todoDelete)
+  }
+
+
+  // using useCallback -> useCallback is only work on the function
+  // const handleEdit = useCallback((id) => {
+  //   const todoEdit = data.map((ed) =>
+  //     ed.id === id ? { ...ed, status: !ed.status } : ed
+  //   );
+  //   setData(todoEdit)
+  // },[data])
+  // const handleDelete = useCallback((id) => {
+  //   const todoDelete = data.filter((dl)=> dl.id !== id);
+  //   setData(todoDelete)
+  // },[data])
 
   return (
     <>
@@ -42,6 +66,8 @@ export const Todos = () => {
             <TodosItem
               key={el.id}
               {...el}
+              handleEdit={handleEdit}
+              handleDelete={handleDelete}
             />
           );
         })}
