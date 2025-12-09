@@ -6,22 +6,24 @@ const ACTIONS = {
   ERROR: "error",
 };
 
+// this is initial state
 const initialState = {
-  data: [],
+  datas: [],
   error: null,
   loading: false,
 };
 
+// this is reducer
 const reducer = (state, action) => {
-  switch (action.typpe) {
+  switch (action.type) {
     case ACTIONS.API_REQUEST:
-      return { ...state, data: [], loading: true };
+      return { ...state, datas: [], loading: true };
 
     case ACTIONS.FETCH_DATA:
-      return { ...state, data: action.payload, loading: false, error: null };
+      return { ...state, datas: action.payload, loading: false, error: null };
 
     case ACTIONS.ERROR:
-      return { ...state, data: [], error: action.payload };
+      return { ...state, datas: [], error: action.payload };
 
     default:
       return state;
