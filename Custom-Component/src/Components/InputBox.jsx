@@ -17,6 +17,32 @@ export const InputBox = ({ label, length, perBox }) => {
     }
   };
 
+  const handleBackspace = (index) => {
+    if (index > 0) {
+      element.current[index - 1]?.focus();
+    }
+  };
+
+
+  const handlePasteFunc = (pasteValue, index) => {
+  let chars = pasteValue.split("");
+
+  const updated = [...data];
+
+  for (let i = 0; i < chars.length && index + i < length; i++) {
+    updated[index + i] = chars[i];
+    element.current[index + i].value = chars[i];
+  }
+
+  setData(updated);
+
+  // Focus last filled box
+  const lastIndex = Math.min(index + chars.length - 1, length - 1);
+  element.current[lastIndex]?.focus();
+};
+
+
+
   return (
     <>
       {data &&
@@ -27,6 +53,8 @@ export const InputBox = ({ label, length, perBox }) => {
               max={perBox}
               key={index}
               onChange={(values) => handleAddFunc(values, index)}
+              onBackspace={() => handleBackspace(index)}
+              onPaste={(val) => handlePasteFunc(val, index)}
             />
           );
         })}
