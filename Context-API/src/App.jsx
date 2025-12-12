@@ -8,6 +8,7 @@ export function App() {
     <>
       <Counter />
       <Dummy />
+      <DummyCounter />
     </>
   )
 }
