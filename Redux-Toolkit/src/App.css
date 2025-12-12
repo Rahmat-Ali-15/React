@@ -1,0 +1,274 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* .addTodo-container{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+.addTodo-container>input{
+    width: 350px;
+    padding: 10px 15px;
+    font-size: 16px;
+    outline: none;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    border-radius: 7px;
+}
+.addTodo-container>button{
+    padding: 10px 30px;
+    font-size: 16px;
+    background-color: rgb(62, 62, 171);
+    color: white;
+    border: none;
+    border-radius: 7px;
+}
+.todoList-container{
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+.todoList-content{
+    padding: 10px;
+    width: 500px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    border-radius: 7px;
+}
+.cancel-confirm-btns,
+.edit-delete-btns{
+    display: flex;
+    gap: 10px;
+}
+.edit-btn,
+.delete-btn,
+.cancel-btn,
+.confirm-btn{
+    padding: 5px 25px;
+    font-size: 15px;
+    border: none;
+    color: #fff;
+    border-radius: 7px;
+}
+.edit-btn{
+    background-color: #0ea5e9;
+}
+.delete-btn{
+    background-color: #ef4444;
+}
+.cancel-btn{
+    background-color: #6b7280;
+}
+.confirm-btn{
+    background-color: #22c55e;
+}
+.todo-text {
+  font-size: 18px;
+  transition: 0.2s ease;
+}
+
+.completed {
+  text-decoration: line-through;
+  color: gray;
+  opacity: 0.6;
+  font-style: italic;
+} */
+
+
+/* ----------------------------- */
+/* Add Todo Section */
+/* ----------------------------- */
+
+body{
+    background-color: black;
+}
+.addTodo-container {
+  display: flex;
+  gap: 10px;
+  margin: 20px auto;
+  width: 400px;
+  justify-content: center;
+}
+
+.addTodo-container input {
+  width: 250px;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  font-size: 16px;
+  transition: 0.2s;
+}
+
+.addTodo-container input:focus {
+  border-color: #6366f1;
+  outline: none;
+  box-shadow: 0 0 5px #6366f1;
+}
+
+.addTodo-container button {
+  padding: 10px 18px;
+  background-color: #4f46e5;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.addTodo-container button:hover {
+  background-color: #4338ca;
+  transform: scale(1.05);
+}
+
+
+/* ----------------------------- */
+/* Todo List Container */
+/* ----------------------------- */
+
+.todoList-container {
+  width: 450px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+
+/* ----------------------------- */
+/* Individual Todo Card */
+/* ----------------------------- */
+
+.todoList-content {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 12px 15px;
+  background: #ffffff;
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+  transition: 0.2s;
+}
+
+.todoList-content:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 3px 10px rgba(0,0,0,0.10);
+}
+
+/* Checkbox */
+.todoList-content input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+
+/* ----------------------------- */
+/* Todo Text */
+/* ----------------------------- */
+
+.todo-text {
+  font-size: 18px;
+  font-weight: 500;
+  flex: 1;
+  transition: 0.3s ease;
+}
+
+.completed {
+  text-decoration: line-through;
+  color: #888;
+  opacity: 0.6;
+  transform: translateX(5px);
+}
+
+
+/* ----------------------------- */
+/* Buttons */
+/* ----------------------------- */
+
+button {
+  padding: 7px 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+/* Edit / Delete Button Group */
+.edit-delete-btns {
+  display: flex;
+  gap: 8px;
+}
+
+/* Edit Button */
+.edit-btn {
+  background-color: #0ea5e9;
+  color: white;
+}
+.edit-btn:hover {
+  background-color: #0284c7;
+  transform: scale(1.05);
+}
+
+/* Delete Button */
+.delete-btn {
+  background-color: #ef4444;
+  color: white;
+}
+.delete-btn:hover {
+  background-color: #dc2626;
+  transform: scale(1.05);
+}
+
+
+/* Cancel / Confirm Group */
+.cancel-confirm-btns {
+  display: flex;
+  gap: 8px;
+}
+
+/* Cancel Button */
+.cancel-btn {
+  background-color: #6b7280;
+  color: white;
+}
+.cancel-btn:hover {
+  background-color: #4b5563;
+  transform: scale(1.05);
+}
+
+/* Confirm Button */
+.confirm-btn {
+  background-color: #22c55e;
+  color: white;
+}
+.confirm-btn:hover {
+  background-color: #16a34a;
+  transform: scale(1.05);
+}
+
+
+/* ----------------------------- */
+/* Editing Input */
+/* ----------------------------- */
+
+.todoList-content input[type="text"] {
+  padding: 7px;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  font-size: 16px;
+}
+
+.todoList-content input[type="text"]:focus {
+  border-color: #6366f1;
+  outline: none;
+  box-shadow: 0 0 5px #6366f1;
+}
