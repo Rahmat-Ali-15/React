@@ -18,7 +18,7 @@ const todoReducer = createSlice({
     },
     editTodo(state, action) {
       state.item = state.item.map((el) =>
-        el.id === action.payload ? { ...el, isEdited: !el.isEdited } : el
+        el.id === action.payload ? { ...el, isEdited: !el.isEdited } : {...el, isEdited: false}
       );
     },
     cancelTodo(state, action) {
