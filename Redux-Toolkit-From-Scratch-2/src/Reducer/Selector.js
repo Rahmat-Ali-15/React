@@ -5,14 +5,15 @@ const selectData = (state) => {
 };
 
 export const selectedComponents = createSelector([selectData], (value) => {
+// console.log("🚀 ~ value:", value);
 
   return {
-    count: value.value,
-    updatedByPayload: value.sumOfNumberPayload,
-    random: value.unHandleAction,
+    count: value.count.value,
+    updatedByPayload: value.count.sumOfNumberPayload,
+    random: value.count.unHandleAction,
   };
 });
 
 export const isEven = createSelector([selectData], (count) => {
-  return count.value % 2 === 0;
+  return count.count.value % 2 === 0;
 });
