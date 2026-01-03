@@ -3,14 +3,14 @@ import {
   completeTodo,
   deleteTodo,
   editTodo,
-  completeTodoChecked,
+  // completeTodoChecked,
 } from "../Reducer/Reducer";
 
 export const TodoList = () => {
   const dispatch = useDispatch();
   const todoData = useSelector((state) => state.todo.todoItems);
-  const pin = useSelector(completeTodoChecked);
-  console.log("🚀 ~ pin:", pin);
+  // const pin = useSelector(completeTodoChecked);
+  // console.log("🚀 ~ pin:", pin);
   console.log("🚀 ~ todoData:", todoData);
 
   const handleComplete = (id) => {
@@ -37,7 +37,8 @@ export const TodoList = () => {
             >
               <input
                 type="checkbox"
-                onClick={() => handleComplete(el.id)}
+                checked={el.isComplete}
+                onChange={() => handleComplete(el.id)}
               />
               <p>{el.id}</p>
               <p>{el.text}</p>
@@ -48,13 +49,13 @@ export const TodoList = () => {
             </div>
           ))}
       </div>
-      {
+      {/* {
         pin && pin.map((e)=> (
             <div key={e.id}>
                 <p>{e.text}</p>
             </div>
         ))
-      }
+      } */}
     </>
   );
 };
