@@ -31,18 +31,21 @@ const myOwnTodoReducer = createSlice({
   initialState: {
     todoItems: [],
     pinTodo: [],
+    customId: 1,
     isLoading: false,
     isError: false,
   },
   reducers: {
     addTodo: (state, action) => {
       const todo = {
-        id: nanoid(),
+        id: state.customId,
         text: action.payload,
         isEdits: false,
         isComplete: false,
       };
       state.todoItems.push(todo);
+      state.todoItems.sort((a, b) => a.id - b.id);
+      state.customId += 1
     },
     editTodo: (state, action) => {
       state.todoItems = state.todoItems.map((el) =>
@@ -52,13 +55,41 @@ const myOwnTodoReducer = createSlice({
     deleteTodo: (state, action) => {
       state.todoItems = state.todoItems.filter((el) => el.id != action.payload);
     },
+    // completeTodo: (state, action) => {
+    //   state.pinTodo = state.todoItems.map((el) =>
+    //     el.id === action.payload ? { ...el, isComplete: !el.isComplete } : el
+    //   );
+    //   state.todoItems = state.todoItems.map((el) =>
+    //     el.id === action.payload ? { ...el, isComplete: !el.isComplete } : el
+    //   ).filter((el) => el.isComplete != true);
+    // },
+
     completeTodo: (state, action) => {
-      state.pinTodo = state.todoItems.map((el) =>
-        el.id === action.payload ? { ...el, isComplete: !el.isComplete } : el
-      );
-      state.todoItems = state.todoItems.map((el) =>
-        el.id === action.payload ? { ...el, isComplete: !el.isComplete } : el
-      ).filter((el) => el.isComplete != true);
+      // 🔁 CASE 1: pin → todo
+      if (state.pinTodo.some((el) => el.id === action.payload)) {
+        state.todoItems = [
+          ...state.todoItems,
+          ...state.pinTodo
+            .filter((el) => el.id === action.payload)
+            .map((el) => ({ ...el, isComplete: false })),
+        ];
+        state.todoItems.sort((a, b) => a.id - b.id);
+        state.pinTodo = state.pinTodo.filter((el) => el.id !== action.payload);
+      }
+      // 📌 CASE 2: todo → pin
+      else {
+        state.pinTodo = [
+          ...state.pinTodo,
+          ...state.todoItems
+            .filter((el) => el.id === action.payload)
+            .map((el) => ({ ...el, isComplete: true })),
+        ];
+
+        state.todoItems = state.todoItems.filter(
+          (el) => el.id !== action.payload
+        );
+        state.pinTodo.sort((a, b) => a.id - b.id);
+      }
     },
   },
   // selectors: {
@@ -66,9 +97,11 @@ const myOwnTodoReducer = createSlice({
   //     state.todoItems.filter((el) => el.isComplete === true),
   // },
   selectors: {
-    completeTodoChecked: createSelector([(state) => state.pinTodo], (pinTodo) => {
-      return pinTodo.filter((el) => el.isComplete === true);
-    }
+    completeTodoChecked: createSelector(
+      [(state) => state.pinTodo],
+      (pinTodo) => {
+        return pinTodo.filter((el) => el.isComplete === true);
+      }
     ),
   },
 });
