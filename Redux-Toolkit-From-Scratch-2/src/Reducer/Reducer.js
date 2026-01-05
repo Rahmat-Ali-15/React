@@ -45,7 +45,7 @@ const myOwnTodoReducer = createSlice({
       };
       state.todoItems.push(todo);
       state.todoItems.sort((a, b) => a.id - b.id);
-      state.customId += 1
+      state.customId += 1;
     },
     editTodo: (state, action) => {
       state.todoItems = state.todoItems.map((el) =>
@@ -104,6 +104,23 @@ const myOwnTodoReducer = createSlice({
       }
     ),
   },
+  // extraReducers: (builder) => {
+  //   builder
+  //     .addCase(action_type.fetchTodos.pending, (state) => {
+  //       state.isLoading = true;
+  //     })
+  //     .addCase(action_type.fetchTodos.fulfilled, (state, action) => {
+  //       state.isLoading = false;
+  //       state.todoItems = action.payload;
+  //     })
+  //     .addCase(action_type.fetchTodos.rejected, (state, action) => {
+  //       state.isLoading = false;
+  //       state.isError = action.payload;
+  //     })
+  //     .addCase(action_type.addTodoHttp.fulfilled, (state, action) => {
+  //       state.todoItems = action.payload;
+  //     });
+  // },
 });
 
 export const { addTodo, editTodo, deleteTodo, completeTodo } =
@@ -120,3 +137,4 @@ export const { completeTodoChecked } = myOwnTodoReducer.getSelectors(
 );
 
 export const myTodoReducers = myOwnTodoReducer.reducer;
+;
