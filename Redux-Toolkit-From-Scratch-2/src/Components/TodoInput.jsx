@@ -1,7 +1,8 @@
-import { useRef } from "react"
+import { useEffect, useRef } from "react"
 import { useDispatch, useSelector } from "react-redux";
 import { addTodo } from "../Reducer/Reducer";
 import { TodoList } from "./TodoList";
+import { fetchTodos } from "../Reducer/Action";
 
 export const TodoInput = () => {
     const todoValueData = useRef();
@@ -14,7 +15,18 @@ export const TodoInput = () => {
         const valueText = todoValueData.current.value.trim()
         if(valueText == "") return
         dispatch(addTodo(valueText))
+
+        // let todohttp = {
+        //     text: valueText,
+        //     isComplete: false,
+        //     isEdit: false
+        // }
+        // dispatch(addTodo(todohttp))
     }
+
+    useEffect(() => {
+        dispatch(fetchTodos())
+    }, [dispatch])
 
     return(
         <>
