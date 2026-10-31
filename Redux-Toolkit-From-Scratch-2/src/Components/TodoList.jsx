@@ -4,14 +4,16 @@ import {
   deleteTodo,
   editTodo,
   // completeTodoChecked,
+  totalTodo,
 } from "../Reducer/Reducer";
 
 export const TodoList = () => {
   const dispatch = useDispatch();
-  const todoData = useSelector((state) => state.todo.todoItems);
+
+  const todoData = useSelector(totalTodo);
+
   // const pin = useSelector(completeTodoChecked);
   // console.log("🚀 ~ pin:", pin);
-  console.log("🚀 ~ todoData:", todoData);
 
   const handleComplete = (id) => {
     dispatch(completeTodo(id));
@@ -30,7 +32,7 @@ export const TodoList = () => {
       <h1>Todo List</h1>
       <div className="todoList-container">
         {todoData &&
-          todoData.map((el, i) => (
+          todoData?.map((el, i) => (
             <div
               key={i}
               className="todoList-content"

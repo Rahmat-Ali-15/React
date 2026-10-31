@@ -103,24 +103,25 @@ const myOwnTodoReducer = createSlice({
         return pinTodo.filter((el) => el.isComplete === true);
       }
     ),
+    totalTodo: (state) => state.todoItems,
   },
-  // extraReducers: (builder) => {
-  //   builder
-  //     .addCase(action_type.fetchTodos.pending, (state) => {
-  //       state.isLoading = true;
-  //     })
-  //     .addCase(action_type.fetchTodos.fulfilled, (state, action) => {
-  //       state.isLoading = false;
-  //       state.todoItems = action.payload;
-  //     })
-  //     .addCase(action_type.fetchTodos.rejected, (state, action) => {
-  //       state.isLoading = false;
-  //       state.isError = action.payload;
-  //     })
-  //     .addCase(action_type.addTodoHttp.fulfilled, (state, action) => {
-  //       state.todoItems = action.payload;
-  //     });
-  // },
+  extraReducers: (builder) => {
+    builder
+      .addCase(action_type.fetchTodos.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(action_type.fetchTodos.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.todoItems = action.payload;
+      })
+      .addCase(action_type.fetchTodos.rejected, (state, action) => {
+        state.isLoading = false;
+        state.isError = action.payload;
+      })
+      .addCase(action_type.addTodoHttp.fulfilled, (state, action) => {
+        state.todoItems.push(action.payload);
+      });
+  },
 });
 
 export const { addTodo, editTodo, deleteTodo, completeTodo } =
@@ -130,11 +131,10 @@ export const { addTodo, editTodo, deleteTodo, completeTodo } =
 //   return myOwnTodoReducer.selectors.completeTodoChecked(state);
 // };
 
-export const { completeTodoChecked } = myOwnTodoReducer.getSelectors(
+export const { completeTodoChecked,totalTodo } = myOwnTodoReducer.getSelectors(
   (state) => {
     return state.todo;
   }
 );
 
 export const myTodoReducers = myOwnTodoReducer.reducer;
-;

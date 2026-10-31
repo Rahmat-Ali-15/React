@@ -11,7 +11,7 @@ const initialState = { value: 0 };
 const rootReducer = createReducer(initialState, (para) => {
   para
     .addCase(increment, (state, action) => {
-      state.value++;
+      state.value++
     })
     .addCase(decrement, (state, action) => {
       state.value--;

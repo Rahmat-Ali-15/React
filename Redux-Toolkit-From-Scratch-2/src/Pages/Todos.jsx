@@ -6,8 +6,8 @@ export const Todos = () => {
     return(
         <>
             <TodoInput />
-            <PinList />
-            <TodoList />
+            {/* <PinList />
+            <TodoList /> */}
         </>
     )
 }

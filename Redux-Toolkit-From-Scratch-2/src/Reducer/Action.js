@@ -23,15 +23,29 @@ export const isActionWithNumberPayload = (action) => {
 
 // ? READ
 
-export const fetchTodos = createAsyncThunk("createTodo", async () => {
+export const fetchTodos = createAsyncThunk("readTodo", async () => {
   const res = await api.post("/todo");
   return res.data;
 });
 
 // # CREAT
 
-export const addTodoHttp = createAsyncThunk("addTodo", async (newPost) => {
+export const addTodoHttp = createAsyncThunk("createTodo", async (newPost) => {
   console.log("🚀 ~ newPost:", newPost);
   const res = await api.post("/todo", newPost);
   return res.data;
 });
+
+// ! Delete
+
+export const deleteTodos = createAsyncThunk("delteTodo", async(id) => {
+  const res = await api.delete(`/todo/${id}`);
+  return res.data
+})
+
+// * Edit
+
+export const updateTodos = createAsyncThunk("updateTodo", async({id, updateValue}) => {
+  const res = await api.patch(`/todo/${id}`, updateValue);
+  return res.data
+})
